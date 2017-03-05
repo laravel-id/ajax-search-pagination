@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Filter user data based on query
+     *
+     * @params $query
+     * @return Eloquent
+     */   
+    public function scopeFilter($query)
+    {
+        $keyword = request('keyword');
+        if ($query) {
+            $query->where('email', 'LIKE', '%' . $keyword . '%');
+        }
+
+        return $query;
+    }
 }

@@ -1,4 +1,4 @@
-![](https://j.gifs.com/0gPPBK.gif)
+Demo dapat dilihat pada gambar berikut: [](https://j.gifs.com/0gPPBK.gif)
 
 ## Instalasi
 

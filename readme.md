@@ -1,3 +1,5 @@
+![](https://j.gifs.com/0gPPBK.gif)
+
 ## Instalasi
 
 - Clone repositori.

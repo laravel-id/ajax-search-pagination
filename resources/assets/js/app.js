@@ -14,7 +14,41 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+const appSearch = Vue.component('search', require('./components/Search.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+    	keyword: '',
+    	url: '/user/search',
+    	users: Array
+    },
+
+    mounted() {
+    	this.getUser(this.url);
+    },
+
+    methods: {
+
+    	getUser(url) {
+    		axios.get(url).then(response => {
+    			this.users = response.data;
+    		}).catch(error => {
+    			console.log(Object.assign({}, error));
+    		})
+    	},
+
+    	searchUser(keyword) {
+    		this.keyword = keyword;
+
+    		const url = `${this.url}?keyword=${this.keyword}`;
+
+    		axios.get(url).then(response => {
+    			this.users = response.data;
+    		}).catch(error => {
+    			console.log(Object.assign({}, error));
+    		})
+    	}
+    }
 });
